@@ -61,13 +61,13 @@ public class Semana4 {
         String apellidos = entrada.nextLine();
 
         System.out.print(" Documento de identidad: ");
-        String documento = entrada.nextLine();
+        String documento = entrada.nextInt();
 
         System.out.print("Dirección: ");
         String direccion = entrada.nextLine();
 
         System.out.print("Teléfono: ");
-        String telefono = entrada.nextLine();
+        String telefono = entrada.nextInt();
 
         System.out.print("\n ¿Qué semestre cursa el estudiante? (1-10): ");
         int semestre = entrada.nextInt();
