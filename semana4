@@ -1,0 +1,129 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.semana4;
+
+/**
+ *
+ * @author DELL
+ */
+import java.util.Scanner;
+
+
+public class Semana4 {
+
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        // Menú de matrícula
+        System.out.println("BIENVENIDO A LA UNIVERSIDAD");
+        System.out.println("Seleccione la carrera de su interés:");
+        System.out.println("1. Gastronomía");
+        System.out.println("2. Arquitectura");
+        System.out.println("3. Ingeniería de sistemas");
+        System.out.println("4. Ingeniería civil");
+        System.out.println("5. Derecho");
+        System.out.print("Seleccione el número de la carrera: ");
+        int opcionCarrera = entrada.nextInt();
+        entrada.nextLine(); 
+
+        String carreraInteres;
+        switch (opcionCarrera) {
+            case 1:
+                carreraInteres = "Gastronomía";
+                break;
+            case 2:
+                carreraInteres = "Arquitectura";
+                break;
+            case 3:
+                carreraInteres = "Ingeniería de sistemas";
+                break;
+            case 4:
+                carreraInteres = "Ingeniería civil";
+                break;
+            case 5:
+                carreraInteres = "Derecho";
+                break;
+            default:
+                System.out.println("Opción NO VÁLIDA. Se asignará 'Carrera no elegida'.");
+                carreraInteres = "Carrera no elegida";
+                break;
+        }
+
+        // Datos del estudiante
+        System.out.println(" \n Ingrese los datos del estudiante:");
+
+        System.out.print(" Nombres: ");
+        String nombres = entrada.nextLine();
+
+        System.out.print(" Apellidos: ");
+        String apellidos = entrada.nextLine();
+
+        System.out.print(" Documento de identidad: ");
+        String documento = entrada.nextLine();
+
+        System.out.print("Dirección: ");
+        String direccion = entrada.nextLine();
+
+        System.out.print("Teléfono: ");
+        String telefono = entrada.nextLine();
+
+        System.out.print("\n ¿Qué semestre cursa el estudiante? (1-10): ");
+        int semestre = entrada.nextInt();
+        entrada.nextLine();
+
+        System.out.print("¿El estudiante cursa en línea? (si/no): ");
+        String enlinea = entrada.nextLine().toLowerCase();
+
+        // Cálculo de matrícula
+        double matriculaBase = 1500;
+        double totalPagar = matriculaBase;
+
+        if (semestre >= 5) {
+            totalPagar += matriculaBase * 0.05; // aumento del 5%
+        }
+
+        // Materias aplazadas
+        System.out.print("Ingrese la cantidad de créditos del semestre actual: ");
+        int creditosNormales = entrada.nextInt();
+        entrada.nextLine();
+
+        System.out.print("¿Tiene materias aplazadas? (si/no): ");
+        String materiasAplazadas = entrada.nextLine().toLowerCase();
+
+        int creditosAplazados = 0;
+        if (materiasAplazadas.equals("si")) {
+            System.out.print("Ingrese la cantidad de créditos aplazados: ");
+            creditosAplazados = entrada.nextInt();
+        }
+
+        int costoPorCredito;
+        if (semestre >= 1 && semestre <= 3) {
+            costoPorCredito = 20;
+        } else if (semestre >= 4 && semestre <= 6) {
+            costoPorCredito = 25;
+        } else {
+            costoPorCredito = 30;
+        }
+
+        double costoNormal = creditosNormales * costoPorCredito;
+        double costoAplazadas = creditosAplazados * costoPorCredito;
+
+        totalPagar += costoNormal + costoAplazadas;
+
+        // Recibo final
+        System.out.println("\n RECIBO DE INSCRIPCIÓN ");
+        System.out.println("Estudiante: " + nombres + " " + apellidos);
+        System.out.println("Documento: " + documento);
+        System.out.println("Dirección: " + direccion);
+        System.out.println("Teléfono: " + telefono);
+        System.out.println("Carrera: " + carreraInteres);
+        System.out.println("Semestre: " + semestre);
+        System.out.println("Modalidad: " + (enlinea.equals("si") ? "En Línea" : "Presencial"));
+        System.out.printf("Total a Pagar: $%.2f%n", totalPagar);
+        System.out.println("Gracias por seguir sus sueños con nosotros ");
+
+        entrada.close();
+    }
+}
