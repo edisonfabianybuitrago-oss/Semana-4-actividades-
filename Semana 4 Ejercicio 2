@@ -1,0 +1,100 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author DELL
+ */
+import java.util.Scanner;
+public class Ejercicio2 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        //cliente datos
+   
+        System.out.println(" \n Ingrese los datos del cliente:");
+
+        System.out.print(" Nombres: ");
+        String nombres = entrada.nextLine();
+
+        System.out.print(" Apellidos: ");
+        String apellidos = entrada.nextLine();
+
+        System.out.print(" Documento de identidad: ");
+        String documento = entrada.nextLine();
+
+        System.out.print("Dirección: ");
+        String direccion = entrada.nextLine();
+
+        System.out.print("Teléfono: ");
+        String telefono = entrada.nextLine();
+        
+        //registro de barcos
+        
+        System.out.print("\n ¿Cuántos  barcos desea amarrar? (1-5): ");
+        int barco = entrada.nextInt();
+        entrada.nextLine();
+        
+        for (int i = 1; i <= barco; i++) {
+            System.out.println("\n    barco#" + i + "   "); 
+            
+            System.out.print(" Nombre del barco: ");
+            String nombreBarco = entrada.nextLine();
+            
+            System.out.print(" Tipo de barco: ");
+            String tipoBarco = entrada.nextLine();
+        
+            System.out.print(" Diametro de eslora (mts.): ");
+            int diametroBarco = entrada.nextInt();
+        
+            System.out.print(" Año de fabricación del barco: ");
+            int añoBarco = entrada.nextInt();
+            entrada.nextLine();
+     
+            System.out.println(" barco #" + i + " nombre de barco: " + nombreBarco + " " + añoBarco + " tipo de barco " + tipoBarco +" " + "eslora:  " + diametroBarco);
+        }
+     
+                System.out.println("\nRegistro completo de " + barco + " barcos."); 
+                entrada.nextLine();
+                
+     // calculo Alquiler 
+     
+        System.out.print("\n ¿Cuántos amarres para barco desea alquilar? (1-20): ");
+        int amarre = entrada.nextInt();
+        
+        System.out.print("\n ¿Por cuántos días desea alquilar? (1-20): ");
+        int diaAlquiler = entrada.nextInt();
+        
+        entrada.nextLine();
+        System.out.print("Fecha de inicio de alquiler: (formato: dd/mm/aaaa) ");
+        String fechaAlquiler = entrada.nextLine();
+             
+        double alquiler = 20.0;   // valor por día y amarre
+        double impuesto = 19;     // porcentaje IVA
+
+        double totalPago = diaAlquiler * alquiler * amarre;  
+        double total = totalPago + (totalPago * impuesto / 100);
+        
+        if (amarre >= 1 && amarre <= 20) {
+            totalPago = (diaAlquiler * alquiler * barco);  
+        System.out.println("saldo sin impuestos: " + totalPago);
+        }
+         
+        System.out.println("saldo total: " + total);
+       
+        System.out.println("\n RECIBO DE ALQUILER ");
+        System.out.println("Cliente: " + nombres + " " + apellidos);
+        System.out.println("Documento: " + documento);
+        System.out.println("Fecha de inicio: " + fechaAlquiler);
+        System.out.println("Amarres: " + amarre);
+        System.out.println("Barcos en total:  " + barco );
+        System.out.println("Días de alquiler: " + diaAlquiler);
+        System.out.println("Subtotal: $" + totalPago);
+        System.out.println("Total con IVA (" + impuesto + "%): $" + total);
+        System.out.println("\n¡Gracias por su confianza!");
+        
+    }
+
+}
